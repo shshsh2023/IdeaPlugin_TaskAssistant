@@ -1,0 +1,47 @@
+<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN. It cannot be changed between the plugin versions. -->
+    <id>com.song.TaskAssistant</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-name -->
+    <name>TaskAssistant</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor email="2372977246@qq.com" url="">ASong</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Simple HTML elements (text formatting, paragraphs, and lists) can be added inside of <![CDATA[ ]]> tag.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/plugin-overview-page.html#plugin-description -->
+    <description><![CDATA[
+        这个插件用于提交个人任务和制定每次的工作时间，工作时间到达之后会提醒用户，提醒用户休息等等
+  ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <!-- Extension points defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow factoryClass="com.song.taskassistant.toolwindows.TaskAssistantToolWindowPlugin" id="BreakToolWindowPlugin"
+                    icon="AllIcons.Toolwindows.InfoEvents" anchor="right"/>
+
+    </extensions>
+
+    <actions>
+
+    </actions>
+
+    <projectListeners>
+        <listener class="com.song.taskassistant.listener.TaskAssistantToolWindowListener"
+                  topic="java.awt.event.WindowAdapter"/>
+
+    </projectListeners>
+
+    <applicationListeners>
+
+    </applicationListeners>
+
+</idea-plugin>
